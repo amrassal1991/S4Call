@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Voice Chat Demo - Editable Input</title>
+<style>
+    .transcript-display {
+        width: 100%;
+        min-height: 40px;
+        padding: 10px;
+        margin: 10px 20px;
+        font-style: italic;
+        color: #dc2626;
+        border: 1px dashed #ef4444;
+        border-radius: 8px;
+        resize: vertical;
+        font-size: 16px;
+        font-family: inherit;
+    }
+    .transcript-display:focus {
+        outline: 2px solid #667eea;
+        font-style: normal;
+        color: #334155;
+    }
+</style>
+</head>
+<body>
+<div class="chat-container">
+    <div class="header">
+        <h1>Voice Chat Assistant</h1>
+        <div class="status">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <span id="statusText">Ready</span>
+        </div>
+        <div class="silence-timer" id="silenceTimer">Auto-send in 2s</div>
+    </div>
+
+    <textarea
+      id="transcriptDisplay"
+      class="transcript-display"
+      placeholder="Listening for your voice..."
+      rows="2"
+    ></textarea>
+
+    <div class="chat-messages" id="chatMessages">
+        <div class="message assistant">
+            👋 Hi! I'm your voice assistant. Click "Start Conversation" to begin talking with me. I'll listen to what you say and respond automatically!
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-primary" id="startBtn">🎤 Start Conversation</button>
+        <button class="btn btn-danger" id="stopBtn" disabled>⏹️ Stop</button>
+        <button class="btn btn-secondary" id="sendBtn" disabled>📤 Send Now</button>
+
+        <div class="settings">
+            <select id="voiceGender">
+                <option value="female">Female Voice</option>
+                <option value="male">Male Voice</option>
+            </select>
+            <select id="silenceDelay">
+                <option value="1000">1s delay</option>
+                <option value="2000" selected>2s delay</option>
+                <option value="3000">3s delay</option>
+                <option value="5000">5s delay</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- The script part (VoiceController logic and UI integration) should be placed in a separate JS file and imported. -->
+<script src="voice-controller.js"></script>
+</body>
+</html>
